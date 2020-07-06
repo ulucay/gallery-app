@@ -2,10 +2,14 @@ body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 h2 {
   font-size: 2em;
+  color: #edeff0;
   margin: 52px 0 40px;
   text-transform: capitalize;
 }
@@ -25,9 +29,13 @@ a {
   margin: 0 auto 32px;
 }
 
+p{
+  color: white;
+}
+
 .search-form button {
   outline: none;
-  background-color: #438bbd;
+  background-color: #cf5071;
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
@@ -52,7 +60,7 @@ input {
 
 .main-nav a {
   display: block;
-  background: #438bbd;
+  background: #cf5071;
   border-radius: 3px;
   padding: 5px;
   color: #fff;
