@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "./Image";
 import NotFound from "./NotFound";
+import { withRouter } from 'react-router-dom';
 
 const Gallery = (props) => {
 
@@ -18,7 +19,7 @@ const Gallery = (props) => {
         images = <NotFound />
     }
 
-
+    
     return(
         <div className="photo-container">
             <h2>Results</h2>
@@ -30,4 +31,4 @@ const Gallery = (props) => {
 
 }
 
-export default Gallery;
+export default withRouter(Gallery);

@@ -1,18 +1,20 @@
 import React,{ Component } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-
+import { BrowserRouter, Route, Switch,  } from 'react-router-dom';
 import './index.css';
 import axios from 'axios';
 import apiKey from './config';
 import Nav from "./Components/Nav";
 import Gallery from "./Components/Gallery";
-import Search from "./Components/SearchForm";
 import NotFound from "./Components/NotFound";
+import SearchForm from './Components/SearchForm';
 
 class App extends Component{
 
     state = {
         pics: [],
+        catPics: [],
+        dogPics: [],
+        birdPics: [],
         loading: true
     }
 
@@ -34,25 +36,26 @@ class App extends Component{
     }
 
 
+
     render(){
         
         return (
                 <BrowserRouter>
                     <div className="container">
-                        <Switch>
-                            <Route exact path="/" >
-                                <Search onSearch={this.performSearch} />
-                                <Nav />
+                        <SearchForm onSearch={this.performSearch} />
+                                <Nav/>
                                 {
                                     (this.state.loading)
                                         ? <p>Loading...</p>
                                         : <Gallery data={this.state.pics}/>
                                 }
-                            </Route>
-                            
-                            <Route exact path="/:query" render={() => (
-                                <Search onSearch={this.performSearch} />
-                            )} />
+                        
+                        <Switch>
+                            <Route exact path="/cats" />
+
+                            <Route exact path="/dogs" />
+
+                            <Route exact path="/birds"/>
 
                             <Route component={NotFound} />
 

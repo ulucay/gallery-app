@@ -1,9 +1,10 @@
 import React, {Component} from "react";
+import { withRouter } from "react-router";
 
 class SearchForm extends Component{
 
     state={
-        searchText: '',
+        searchText: '', 
     }
 
     onSearchChange = e => {
@@ -12,12 +13,16 @@ class SearchForm extends Component{
 
     handleSubmit = e => {
         e.preventDefault();
-        this.props.onSearch(this.query.value);
+        const searchValue =  this.query.value;
+        this.props.onSearch(searchValue);
+        const path = `/${searchValue}`;
+        this.props.history.push(path);
         e.currentTarget.reset();
     }
 
 
     render(){
+        
         return(
             <form className="search-form" onSubmit={this.handleSubmit}>
                 <input
@@ -39,4 +44,4 @@ class SearchForm extends Component{
     }
 }
 
-export default SearchForm;
+export default withRouter(SearchForm);
