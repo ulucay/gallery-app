@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 class Nav extends Component{
 
+    //Navigates corresponding NavLinks and fetches data accordingly
     render(){
         return(
             <nav className="main-nav">

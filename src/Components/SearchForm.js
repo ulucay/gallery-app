@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 
 class SearchForm extends Component{
 
+    //Handles the search functionality and pushes the new url based on what user search
     handleSubmit = e => {
         e.preventDefault();
         let searchValue =  this.query.value;
