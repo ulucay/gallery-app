@@ -3,7 +3,7 @@ import Image from "./Image";
 import NotFound from "./NotFound";
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
-import apiKey from "../config";
+import apiKey from "./config";
 import Loading from "./Loading";
 
 
