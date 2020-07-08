@@ -4,14 +4,16 @@ import NotFound from "./NotFound";
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
 import apiKey from "../config";
+import Loading from "./Loading";
 
 
 class Gallery extends Component{
 
     state={
         images: [],
-        searchedValue: ''
-    }
+        searchedValue: '',
+        loading: true
+    };
 
     componentDidMount() {
         this.performSearch();
@@ -29,6 +31,7 @@ class Gallery extends Component{
                 this.setState({
                     images: response.data.photos.photo,
                     searchedValue: this.props.match.params.topic,
+                    loading: false
                 })
             })
             .catch(error => {
@@ -38,22 +41,27 @@ class Gallery extends Component{
 
     render(){
         let images;
-        if(this.state.images.length > 0 ){
+
+        if(this.state.loading){
+            images = <Loading />
+        }
+        else if(this.state.images.length > 0 ){
             images = this.state.images.map(img => (
                 <Image
                     url={`https://farm${img.farm}.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`}
                     key={img.id}
                 />
             ))
-        }else{
-            this.state.images = <NotFound />
+        }
+        else{
+            images = <NotFound />
         }
 
         return(
             <div className="photo-container">
-                <h2>{ this.state.searchedValue && images ? this.state.searchedValue : ''}</h2>
+                <h2>{ this.state.loading && this.state.loading ? this.state.searchedValue : ''}</h2>
                 <ul>
-                    {images ? images : <NotFound />}
+                    {images}
                 </ul>
             </div>
         )

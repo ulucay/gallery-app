@@ -8,12 +8,6 @@ import SearchForm from './Components/SearchForm';
 
 class App extends Component{
 
-    state = {
-        loading: true,
-    }
-
-
-
     render(){
 
         return (
