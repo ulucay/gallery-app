@@ -1,3 +1,8 @@
+#Gallery App
+
+In this project, I used React.js to build an image gallery app. In order to run this project, you need to set up config.js file which contains API key to access data. You need to apply to get a Flickr API key.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
